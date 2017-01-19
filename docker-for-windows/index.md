@@ -327,20 +327,26 @@ If you would like to have handy tab completion for Docker commands, you can inst
     <br>
     To check that the policy is set properly, run `get-executionpolicy`, which should return `RemoteSigned`.
     <br>
-3. To enable auto-completion of commands for the current PowerShell only, type:
+3. To install the posh-docker PowerShell Module on your computer (requires administrator access), type:
 
     `Install-Module posh-docker`
+    
+    Alternatively, install the module for the current user (administrator access not required):
+    
+    `Install-Module -Scope CurrentUser posh-docker`
 
-4. To make tab completion persistent across all PowerShell sessions, add the command to a `$PROFILE` by typing these commands at the PowerShell prompt.
+4. To enable auto-completion of commands for the current PowerShell only, type:
 
-        Install-Module -Scope CurrentUser posh-docker -Force
-        Add-Content $PROFILE "`nInstall-Module posh-docker"
+    `Import-Module posh-docker`
+
+    To make tab completion persistent across future PowerShell sessions, add the command to a `$PROFILE` by typing this commands at the PowerShell prompt:
+
+    ``Add-Content $PROFILE "`nImport-Module posh-docker"``
 
     This creates a `$PROFILE` if one does not already exist, and adds this line into the file:
 
-    `Install-Module posh-docker`
+    `Import-Module posh-docker`
 
-    <br>
     To check that the file was properly created, or simply edit it manually, type this in PowerShell:
 
     `Notepad $PROFILE`
